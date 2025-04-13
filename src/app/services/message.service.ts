@@ -10,5 +10,19 @@ export class MessageService {
   private baseApiUrl = environment.baseApiUrl;
   private apiUrl = `${this.baseApiUrl}api/message`;
 
+  message: string = '';
+
   constructor(private http: HttpClient) { }
+
+  add(message: string): void {
+    this.message = message;
+
+    setTimeout(() => {
+      this.clear()
+    }, 4000);
+  }
+
+  clear(): void {
+    this.message = '';
+  }
 }
